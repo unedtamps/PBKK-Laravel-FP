@@ -4,12 +4,15 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
+    /**
+ * @use HasFactory<\Database\Factories\UserFactory>
+*/
     use HasFactory, Notifiable;
 
     /**
@@ -17,11 +20,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $guarded = [];
+    public $incrementing = false;  // Disable auto-incrementing since UUIDs are used
+    protected $keyType = 'string'; // Set the primary key type to string
 
     /**
      * The attributes that should be hidden for serialization.
@@ -44,5 +45,15 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function transactions():HasMany
+    {
+        return $this->hasMany(Transaction::class);
     }
 }
