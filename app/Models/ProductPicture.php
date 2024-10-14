@@ -15,6 +15,7 @@ class ProductPicture extends Model
     protected $fillable = ['id'];
     public $incrementing = false;  // Disable auto-incrementing since UUIDs are used
     protected $keyType = 'string'; // Set the primary key type to string
+    protected $with = ['product'];
 
     public function product(): BelongsTo
     {

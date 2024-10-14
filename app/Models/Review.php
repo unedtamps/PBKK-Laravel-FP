@@ -17,6 +17,8 @@ class Review extends Model
     public $incrementing = false;  // Disable auto-incrementing since UUIDs are used
     protected $keyType = 'string'; // Set the primary key type to string
 
+    protected $with = ['product', 'user'];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
