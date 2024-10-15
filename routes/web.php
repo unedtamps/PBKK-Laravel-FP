@@ -17,6 +17,12 @@ Route::get(
         return redirect()->intended('login');
     }
 );
+Route::get(
+    '/test',
+    function () {
+        return view('test');
+    }
+);
 Route::get('/product/{product}', [ProductController::class, 'getProduct'])->middleware('user');
 
 Route::post('/register', [UserController::class, 'register']);
