@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\DetailTransaction;
 use App\Models\Product;
@@ -37,6 +38,8 @@ class DatabaseSeeder extends Seeder
         $category = Category::factory()->count(10)->create();
 
         ProductCategory::factory()->count(300)->recycle($category)->recycle($products)->create();
+
+        Cart::factory()->count(100)->recycle($products)->recycle($users)->create();
 
         /* $transactions = Transaction::factory(50)->create()->each( */
         /*     function ($transaction) use ($users) { */
