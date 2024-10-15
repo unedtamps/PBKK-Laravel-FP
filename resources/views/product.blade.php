@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,4 +17,5 @@
     @endforeach
 </body>
 
-</html>
+</html> --}}
+<x-layout></x-layout>
