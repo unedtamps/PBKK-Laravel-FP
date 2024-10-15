@@ -21,5 +21,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Model::preventLazyLoading();
+        \Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::except(
+            [
+            'submit'
+            ]
+        );
     }
 }
