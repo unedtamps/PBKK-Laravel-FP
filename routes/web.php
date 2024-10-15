@@ -6,15 +6,19 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/',[ProductController::class,'getProduct']);
+Route::get('/', [ProductController::class,'getProduct']);
 
-
-
-Route::get(
-    "/logout",
+Route::prefix('user')->group(
     function () {
-        Auth::logout();
-        return redirect()->intended('login');
+        Route::controller(UserController::class)->group(
+            function () {
+                Route::get('/register', 'viewRegister');
+                Route::post('/register', 'register');
+                Route::post('/login', 'login');
+                Route::get('/login', 'viewLogin');
+                Route::post('/logout', 'logout');
+            }
+        );
     }
 );
 Route::get(
@@ -23,10 +27,12 @@ Route::get(
         return view('test');
     }
 );
+
+
 Route::get('/product/{product}', [ProductController::class, 'getProduct'])->middleware('user');
 
-Route::post('/register', [UserController::class, 'register']);
-Route::post('/login', [UserController::class, 'login']);
+/* Route::post('/register', [UserController::class, 'register']); */
+/* Route::post('/login', [UserController::class, 'login']); */
 Route::get(
     '/productpics',
     function () {
@@ -35,17 +41,3 @@ Route::get(
 );
 Route::post('/productpics', [ProductPictureController::class, 'upload']);
 
-Route::get(
-    "/register",
-    function () {
-        return view('register');
-    }
-);
-
-Route::get(
-    "/login",
-    function () {
-        // dd(Auth::user());
-        return view('login');
-    }
-);

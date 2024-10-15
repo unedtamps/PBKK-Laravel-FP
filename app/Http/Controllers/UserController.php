@@ -16,12 +16,13 @@ class UserController extends Controller
             [
             'name' => 'required|string|min:8|max:255',
             'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|min:8',
+            'password' =>'required|string|min:8|regex:/[A-Z]/|regex:/[0-9]/|regex:/[@$!%*#?&]/', // Must contain a special character
+            'confirm_password' => 'required|string|min:8|same:password',
             'phone_number' => 'required|string|min:10|max:15'
             ]
         );
 
-        $user = User::create(
+        User::create(
             [
             'id' => Str::uuid()->toString(),
             'name' => $request->name,
@@ -32,7 +33,7 @@ class UserController extends Controller
             ]
         );
 
-        return response()->json($user);
+        return redirect('/user/login')->with('success', 'Account created successfully! Please log in.');
     }
 
     public function login(Request $request)
@@ -45,10 +46,20 @@ class UserController extends Controller
         );
 
         if (Auth::attempt($cred)) {
-            return redirect()->intended('login');
+            return redirect()->intended('/');
         }
-        return redirect()->intended('register');
+        return redirect()->intended('/user/register');
 
+    }
+
+    public function viewLogin()
+    {
+        return view('login');
+    }
+
+    public function viewRegister()
+    {
+        return view('register');
     }
 
     public function logout(Request $request)
