@@ -21,13 +21,6 @@ Route::prefix('user')->group(
         );
     }
 );
-Route::get(
-    '/test',
-    function () {
-        return view('test');
-    }
-);
-
 
 Route::get('/product/{product}', [ProductController::class, 'getProduct'])->middleware('user');
 
