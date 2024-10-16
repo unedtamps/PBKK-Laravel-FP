@@ -6,6 +6,13 @@
             {{ session('success') }}
         </div>
     @endif
+    @if (session('error'))
+        <div id="success-message"
+            class="alert alert-danger bg-red-500 mt-10
+text-center text-white text-sm md:text-lg max-w-xs md:max-w-md py-2 mx-auto rounded-lg">
+            {{ session('error') }}
+        </div>
+    @endif
     @if ($errors->has('loginError'))
         <div id="error-message"
             class="bg-red-500 mt-10

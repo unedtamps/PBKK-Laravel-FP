@@ -42,7 +42,7 @@
                         class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 md:h-80 h-96">
                         <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg"
                             alt="Front of men&#039;s Basic Tee in black."
-                            class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                            class="object-cover object-center h-full w-full">
                     </div>
                     <div class="mt-4 flex justify-between">
                         <div>

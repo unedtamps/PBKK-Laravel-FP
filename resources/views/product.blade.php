@@ -1,5 +1,4 @@
 <x-authlayout>
-
     <div class="mx-auto max-w-6xl px-4 pt-0 pb-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-2">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div
@@ -97,46 +96,53 @@
         </div>
     </div>
 
-    <script>
-        // Mendapatkan elemen input dan tombol
-        const input = document.getElementById('counter-input-4');
-        const incrementButton = document.getElementById('increment-button-4');
-        const decrementButton = document.getElementById('decrement-button-4');
+    <div class="mx-auto max-w-8xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <div class="flex flex-col items-center">
+            <h2 class="my-5 text-base font-medium tracking-tight text-indigo-500 uppercase">Review Product</h2>
+        </div>
+        <div class="py-4 px-4"></div>
+        <div class="mt-6 relative px-4">
+            <x-swiper-review></x-swiper-review>
+        </div>
+    </div>
 
-        // Fungsi untuk mengubah nilai input
-        function updateValue(delta) {
-            let currentValue = parseInt(input.value);
-            if (isNaN(currentValue)) {
-                currentValue = 0;   // Set default jika input bukan angka
-            }
-            const newValue = currentValue + delta;
-            input.value = newValue;
-        }
+    <div class="">
+        <div class="mx-auto max-6-xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+            <div class="flex flex-col items-center">
+                <h2 class="my-5 text-base font-medium tracking-tight text-indigo-500 uppercase">Related Product</h2>
+            </div>
+            <div class="mt-6">
+                <x-swiper></x-swiper>
+            </div>
+        </div>
+    </div>
 
-        // Menambahkan event listener untuk tombol increment
-        incrementButton.addEventListener('click', function() {
-            updateValue(1);
-        });
+    <x-footer>
+        <script>
+            // Mendapatkan elemen input dan tombol
+            const input = document.getElementById('counter-input-4');
+            const decrementButton = document.getElementById('decrement-button-4');
 
-        // Menambahkan event listener untuk tombol decrement
-        decrementButton.addEventListener('click', function() {
-            if (parseInt(input.value) != 1) {
-                updateValue(-1);
-            }
-        });
-    </script>
-    <script>
-        document.getElementById('add-to-cart').addEventListener('click', function(e) {
-            e.preventDefault();
-            // Ambil nilai counter dari input
-            var counterValue = parseInt(document.getElementById('counter-input-4').value);
+            // Menambahkan event listener untuk tombol decrement
+            decrementButton.addEventListener('click', function() {
+                if (parseInt(input.value) < 2) {
+                    input.value = 2;
+                }
+            });
+        </script>
+        <script>
+            document.getElementById('add-to-cart').addEventListener('click', function(e) {
+                e.preventDefault();
+                // Ambil nilai counter dari input
+                var counterValue = parseInt(document.getElementById('counter-input-4').value);
 
-            // Set nilai ke hidden input
-            document.getElementById('count-input').value = counterValue;
-            console.log(counterValue);
+                // Set nilai ke hidden input
+                document.getElementById('count-input').value = counterValue;
+                console.log(counterValue);
 
-            // Submit form
-            e.target.closest('form').submit();
-        });
-    </script>
+                // Submit form
+                e.target.closest('form').submit();
+            });
+        </script>
+    </x-footer>
 </x-authlayout>

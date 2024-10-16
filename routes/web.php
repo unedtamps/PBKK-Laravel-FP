@@ -58,3 +58,4 @@ Route::post('/productpics', [ProductPictureController::class, 'upload']);
 // Route::post('/checkout', [TransactionController::class, 'addCart']);
 Route::post('/checkout/{id}', [TransactionController::class, 'addCart']);
 Route::post('/transaction', [TransactionController::class, 'store']);
+Route::get('/products', [ProductController::class, 'viewProducts']);
