@@ -6,7 +6,11 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [ProductController::class,'getProduct']);
+Route::get(
+    '/', function () {
+        return view('product');
+    }
+);
 
 Route::prefix('user')->group(
     function () {
@@ -16,13 +20,23 @@ Route::prefix('user')->group(
                 Route::post('/register', 'register');
                 Route::post('/login', 'login');
                 Route::get('/login', 'viewLogin');
-                Route::post('/logout', 'logout');
+                Route::post('/logout', 'logout')->middleware('user');
             }
         );
     }
 );
 
-Route::get('/product/{product}', [ProductController::class, 'getProduct'])->middleware('user');
+Route::prefix('products')->group(
+    function () {
+        Route::controller(ProductController::class)->group(
+            function () {
+                Route::get('/', 'viewProducts');
+            }
+        );
+    }
+);
+
+/* Route::get('/product/{product}', [ProductController::class, 'getProduct'])->middleware('user'); */
 
 /* Route::post('/register', [UserController::class, 'register']); */
 /* Route::post('/login', [UserController::class, 'login']); */
