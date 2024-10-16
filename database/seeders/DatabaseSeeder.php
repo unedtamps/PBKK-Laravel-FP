@@ -23,41 +23,40 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        /* $admin = User::create( */
-        /*     [ */
-        /*     'id' => fake()->uuid(), */
-        /*     'name' => 'admin1234', */
-        /*     'email' => 'admin.tampubolon@gmail.com', */
-        /*     'password' => bcrypt('password'), */
-        /*     'phone_number' => '081234567890', */
-        /*     'role' => 'ADMIN', */
-        /*     ] */
-        /* ); */
+        $admin = User::create(
+            [
+            'id' => fake()->uuid(),
+            'name' => 'admin1234',
+            'email' => 'admin.tampubolon@gmail.com',
+            'password' => bcrypt('password'),
+            'phone_number' => '081234567890',
+            'role' => 'ADMIN',
+            ]
+        );
 
-        /* $user = User::create( */
-        /*     [ */
-        /*     'id' => fake()->uuid(), */
-        /*     'name' => 'Unedo Tampubolon', */
-        /*     'email' => 'unedo.tampubolon@gmail.com', */
-        /*     'password' => bcrypt('password'), */
-        /*     'phone_number' => '08123453890', */
-        /*     'role' => 'USER', */
-        /*     ], */
-        /* ); */
-        /* $user2 = User::create( */
-        /*     [ */
-        /*     'id' => fake()->uuid(), */
-        /*     'name' => 'Willy Simanihuruk', */
-        /*     'email' => 'willy.simanihuruk@gmail.com', */
-        /*     'password' => bcrypt('password'), */
-        /*     'phone_number' => '0812323453890', */
-        /*     'role' => 'USER', */
+        $user = User::create(
+            [
+            'id' => fake()->uuid(),
+            'name' => 'Unedo Tampubolon',
+            'email' => 'unedo.tampubolon@gmail.com',
+            'password' => bcrypt('password'),
+            'phone_number' => '08123453890',
+            'role' => 'USER',
+            ],
+        );
+        $user2 = User::create(
+            [
+            'id' => fake()->uuid(),
+            'name' => 'Willy Simanihuruk',
+            'email' => 'willy.simanihuruk@gmail.com',
+            'password' => bcrypt('password'),
+            'phone_number' => '0812323453890',
+            'role' => 'USER',
 
-        /*     ] */
-        /* ); */
+            ]
+        );
         /* Transaction::factory()->count(50)->recycle(User::all())->recycle(Product::all())->create(); */
 
-        Category::factory(10)->create();
 
         /* $prod = [ */
         /* ['id' => Str::uuid(), 'name' => 'Nike Air Jordan 1', 'units' => 100, 'description' => 'High-top basketball shoes.', 'price' => 150000], */
@@ -84,59 +83,62 @@ class DatabaseSeeder extends Seeder
         /* ]; */
 
         /* $products = Product::create(...$prod); */
-        /* $categories = [ */
-        /*     [ */
-        /*         'name' => 'Electronics', */
-        /*         'id' => fake()->uuid(), */
-        /*         'description' => 'Devices, gadgets, and equipment related to electronics.' */
-        /*     ], */
-        /*     [ */
-        /*         'name' => 'Clothing', */
-        /*         'id' => fake()->uuid(), */
-        /*         'description' => 'Apparel and garments for men, women, and children.' */
-        /*     ], */
-        /*     [ */
-        /*         'name' => 'Home Appliances', */
-        /*         'id' => fake()->uuid(), */
-        /*         'description' => 'Appliances for household needs like refrigerators, washing machines, etc.' */
-        /*     ], */
-        /*     [ */
-        /*         'name' => 'Books', */
-        /*         'id' => fake()->uuid(), */
-        /*         'description' => 'Wide range of literature from various genres.' */
-        /*     ], */
-        /*     [ */
-        /*         'name' => 'Beauty & Personal Care', */
-        /*         'id' => fake()->uuid(), */
-        /*         'description' => 'Skincare, haircare, makeup, and other personal care products.' */
-        /*     ], */
-        /*     [ */
-        /*         'name' => 'Sports & Outdoors', */
-        /*         'id' => fake()->uuid(), */
-        /*         'description' => 'Equipment and gear for sports and outdoor activities.' */
-        /*     ], */
-        /*     [ */
-        /*         'id' => fake()->uuid(), */
-        /*         'name' => 'Toys & Games', */
-        /*         'description' => 'Toys, games, and puzzles for kids and adults.' */
-        /*     ], */
-        /*     [ */
-        /*         'id' => fake()->uuid(), */
-        /*         'name' => 'Automotive', */
-        /*         'description' => 'Car accessories, parts, and maintenance products.' */
-        /*     ], */
-        /*     [ */
-        /*         'id' => fake()->uuid(), */
-        /*         'name' => 'Health & Wellness', */
-        /*         'description' => 'Products related to health, wellness, and fitness.' */
-        /*     ], */
-        /*     [ */
-        /*         'name' => 'Furniture', */
-        /*         'id' => fake()->uuid(), */
-        /*         'description' => 'Furniture for living rooms, bedrooms, offices, and outdoor spaces.' */
-        /*     ] */
-        /* ]; */
-        /* $cate = Category::create(...$categories); */
+        $categories = [
+            [
+                'name' => 'Electronics',
+                'id' => fake()->uuid(),
+                'description' => 'Devices, gadgets, and equipment related to electronics.'
+            ],
+            [
+                'name' => 'Clothing',
+                'id' => fake()->uuid(),
+                'description' => 'Apparel and garments for men, women, and children.'
+            ],
+            [
+                'name' => 'Home Appliances',
+                'id' => fake()->uuid(),
+                'description' => 'Appliances for household needs like refrigerators, washing machines, etc.'
+            ],
+            [
+                'name' => 'Books',
+                'id' => fake()->uuid(),
+                'description' => 'Wide range of literature from various genres.'
+            ],
+            [
+                'name' => 'Beauty & Personal Care',
+                'id' => fake()->uuid(),
+                'description' => 'Skincare, haircare, makeup, and other personal care products.'
+            ],
+            [
+                'name' => 'Sports & Outdoors',
+                'id' => fake()->uuid(),
+                'description' => 'Equipment and gear for sports and outdoor activities.'
+            ],
+            [
+                'id' => fake()->uuid(),
+                'name' => 'Toys & Games',
+                'description' => 'Toys, games, and puzzles for kids and adults.'
+            ],
+            [
+                'id' => fake()->uuid(),
+                'name' => 'Automotive',
+                'description' => 'Car accessories, parts, and maintenance products.'
+            ],
+            [
+                'id' => fake()->uuid(),
+                'name' => 'Health & Wellness',
+                'description' => 'Products related to health, wellness, and fitness.'
+            ],
+            [
+                'name' => 'Furniture',
+                'id' => fake()->uuid(),
+                'description' => 'Furniture for living rooms, bedrooms, offices, and outdoor spaces.'
+            ]
+        ];
+
+        foreach($categories as $c){
+            Category::create($c);
+        }
 
         /* ProductPicture::factory()->count(100)->recycle($products)->create(); */
 

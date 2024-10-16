@@ -137,10 +137,10 @@
 
 
         <div id="modal-overlay" class="hidden fixed inset-0 bg-gray-200 flex justify-center items-center">
-            <form class="max-w-sm md:max-w-lg mx-auto mt-10 w-full modal-form" action="/admin/createproduct"
+            <form class="max-w-sm md:max-w-lg mx-auto mt-5 w-full modal-form" action="/admin/createproduct"
                 method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="mb-5">
+                <div class="mb-2">
                     <label for="name"
                         class="block mb-2 text-sm font-medium
             text-gray-900 dark:text-white">Product
@@ -149,7 +149,7 @@
                         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                         placeholder="Iphone 16 Pro Max" required />
                 </div>
-                <div class="mb-5">
+                <div class="mb-2">
                     <label for="price"
                         class="block mb-2 text-sm font-medium
             text-gray-900 dark:text-white">Price</label>
@@ -157,7 +157,7 @@
                         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                         placeholder="16000000" required />
                 </div>
-                <div class="mb-5">
+                <div class="mb-2">
                     <label for="units"
                         class="block mb-2 text-sm font-medium
             text-gray-900 dark:text-white">Units</label>
@@ -191,7 +191,7 @@
                 </div>
 
 
-                <div class="mb-5">
+                <div class="mb-2">
                     <label for="message"
                         class="block mb-2 text-sm font-medium
             text-gray-900 dark:text-white">Product
@@ -202,7 +202,7 @@
                 </div>
 
 
-                <div class="mb-5">
+                <div class="mb-2">
 
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                         for="file_input">Upload

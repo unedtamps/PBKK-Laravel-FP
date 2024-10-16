@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function viewProducts(Request $request)
     {
-        $query= Product::with('productCategories');
+        $query= Product::with('productCategories', 'productPics');
         $categories = Category::all();
 
         if ($request->search) {
@@ -54,5 +54,10 @@ class ProductController extends Controller
                 'categories' => $categories
             ]
         );
+    }
+    public function getProduct($id)
+    {
+        $product = Product::find($id);
+        return view('product', ['product' => $product]);
     }
 }
