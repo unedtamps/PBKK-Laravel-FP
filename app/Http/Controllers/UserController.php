@@ -48,7 +48,11 @@ class UserController extends Controller
         if (Auth::attempt($cred)) {
             return redirect()->intended('/');
         }
-        return redirect()->intended('/user/register');
+        return redirect()->back()->withErrors(
+            [
+            'loginError' => 'Invalid email or password.',
+            ]
+        )->withInput();
 
     }
 
@@ -65,6 +69,6 @@ class UserController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-        return redirect()->intended('login');
+        return redirect()->intended('/user/login');
     }
 }

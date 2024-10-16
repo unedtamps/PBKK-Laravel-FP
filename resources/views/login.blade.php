@@ -18,6 +18,13 @@ text-center text-white text-sm md:text-lg max-w-xs md:max-w-md py-2 mx-auto roun
             {{ session('success') }}
         </div>
     @endif
+    @if ($errors->has('loginError'))
+        <div id="error-message"
+            class="bg-red-500 mt-10
+text-center text-white text-sm md:text-lg max-w-xs md:max-w-md py-2 mx-auto rounded-lg">
+            {{ $errors->first('loginError') }}
+        </div>
+    @endif
 
     </div>
     <x-authlayout />
@@ -87,6 +94,14 @@ text-center text-white text-sm md:text-lg max-w-xs md:max-w-md py-2 mx-auto roun
             if (successMessage) {
                 setTimeout(() => {
                     successMessage.style.display = 'none';
+                }, 5000); // 5000ms = 5 seconds
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const errorMessage = document.getElementById('error-message');
+            if (errorMessage) {
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
                 }, 5000); // 5000ms = 5 seconds
             }
         });
