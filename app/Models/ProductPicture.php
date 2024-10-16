@@ -12,7 +12,7 @@ class ProductPicture extends Model
  * @use HasFactory<\Database\Factories\ProductPictureFactory>
 */
     use HasFactory;
-    protected $fillable = ['id'];
+    protected $guarded =[];
     public $incrementing = false;  // Disable auto-incrementing since UUIDs are used
     protected $keyType = 'string'; // Set the primary key type to string
     protected $with = ['product'];

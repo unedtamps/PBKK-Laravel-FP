@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductPictureController;
 use App\Http\Controllers\UserController;
@@ -31,6 +32,26 @@ Route::prefix('products')->group(
         Route::controller(ProductController::class)->group(
             function () {
                 Route::get('/', 'viewProducts');
+            }
+        );
+    }
+);
+
+
+Route::prefix('admin')->group(
+    function () {
+        Route::controller(AdminController::class)->group(
+            function () {
+                Route::get('/transactions', 'admin_transaction');
+                Route::post('/transaction/confirm/{transaction}', 'confirm');
+                Route::post('/transaction/cancel/{transaction}', 'cancel');
+                Route::get('/products', 'product');
+                Route::get('/users', 'users');
+                Route::post('/createproduct', 'createProduct');
+                Route::post('/editproduct/{product}', 'editProduct');
+                Route::post('/deleteproduct/{product}', 'deleteProduct');
+                Route::post('/user/makeadmin/{user}', 'makeAdmin');
+                Route::post('/user/delete/{user}', 'deleteUser');
             }
         );
     }

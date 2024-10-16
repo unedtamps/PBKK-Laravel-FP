@@ -17,7 +17,7 @@ return new class extends Migration
                 $table->foreignId('review_id')->constrained(
                     table: 'reviews',
                     indexName: 'review_picture_id',
-                );
+                )->onDelete('cascade');
                 $table->timestamp('created_at')->useCurrent();
                 $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             }

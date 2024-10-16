@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,8 +21,11 @@ class TransactionFactory extends Factory
         return [
             'id' => fake()->uuid(),
             'user_id' => User::factory(),
+            'product_id' => Product::factory(),
             'total_price' => fake()->randomNumber() * 1000,
             'status' =>  'PENDING',
+            'payment_method' => 'BCA',
+            'amount' => '10',
             'transaction_proof' => fake()->uuid(),
             'shipping_address' => fake()->address(),
         ];
