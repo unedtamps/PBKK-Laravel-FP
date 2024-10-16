@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [ProductController::class,'getProduct']);
+Route::get('/', [ProductController::class, 'getHome']);
 
 Route::prefix('user')->group(
     function () {
@@ -21,6 +21,12 @@ Route::prefix('user')->group(
         );
     }
 );
+Route::get(
+    '/product',
+    function () {
+        return view('product');
+    }
+);
 
 Route::get('/product/{product}', [ProductController::class, 'getProduct'])->middleware('user');
 
@@ -33,4 +39,3 @@ Route::get(
     }
 );
 Route::post('/productpics', [ProductPictureController::class, 'upload']);
-

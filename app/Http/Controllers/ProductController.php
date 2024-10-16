@@ -11,4 +11,8 @@ class ProductController extends Controller
     {
         return view('product', ['product' => $product]);
     }
+    public function getHome(Product $product)
+    {
+        return view('home');
+    }
 }
