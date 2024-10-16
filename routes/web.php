@@ -3,10 +3,18 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductPictureController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/product/{id}', [ProductController::class, 'getProduct'],);
+Route::get('/product/{id}', [ProductController::class, 'getProduct']);
+Route::get(
+    '/',
+    function () {
+        return view('home');
+    }
+);
+
 
 Route::prefix('user')->group(
     function () {
@@ -31,12 +39,6 @@ Route::prefix('products')->group(
         );
     }
 );
-Route::get(
-    '/product',
-    function () {
-        return view('product');
-    }
-);
 
 /* Route::get('/product/{product}', [ProductController::class, 'getProduct'])->middleware('user'); */
 
@@ -51,3 +53,5 @@ Route::get(
 
 
 Route::post('/productpics', [ProductPictureController::class, 'upload']);
+// Route::post('/checkout', [TransactionController::class, 'addCart']);
+Route::post('/checkout/{id}', [TransactionController::class, 'addCart']);

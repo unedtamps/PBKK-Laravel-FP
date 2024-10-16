@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Product extends Model
 {
     /**
- * @use HasFactory<\Database\Factories\ProductFactory>
-*/
+     * @use HasFactory<\Database\Factories\ProductFactory>
+     */
     use HasFactory;
     protected $guarded = [];
     public $incrementing = false;  // Disable auto-incrementing since UUIDs are used
@@ -20,7 +20,7 @@ class Product extends Model
     {
         return $this->hasMany(ProductPicture::class);
     }
-    public function productCategories():HasMany
+    public function productCategories(): HasMany
     {
         return $this->hasMany(ProductCategory::class);
     }
@@ -32,7 +32,7 @@ class Product extends Model
     {
         return $this->hasMany(DetailTransaction::class);
     }
-    public function carts():HasMany
+    public function carts(): HasMany
     {
         return $this->hasMany(Cart::class);
     }
