@@ -167,6 +167,30 @@
                 </div>
 
 
+
+                <h3 class="block mb-2 text-sm font-medium
+                text-gray-900 dark:text-white">Check
+                    Category</h3>
+
+                <div class="flex flex-wrap bg-blue-200 p-3 rounded-lg">
+                    @foreach ($category as $index => $c)
+                        <div class="w-1/4 mb-4">
+                            <div class="flex items-center">
+                                <input id="category-{{ $c->id }}" type="checkbox"
+                                    value="{{ $c->id }}" name="categories[]"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="category-{{ $c->id }}"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ $c->name }}</label>
+                            </div>
+                        </div>
+
+                        @if (($index + 1) % 4 == 0)
+                            <div class="w-full"></div>
+                        @endif
+                    @endforeach
+                </div>
+
+
                 <div class="mb-5">
                     <label for="message"
                         class="block mb-2 text-sm font-medium
@@ -176,6 +200,7 @@
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Write your thoughts here..."></textarea>
                 </div>
+
 
                 <div class="mb-5">
 

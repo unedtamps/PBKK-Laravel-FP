@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use App\Models\ProductPicture;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -47,6 +49,7 @@ class AdminController extends Controller
         return view(
             'admin.product', [
             'products' => Product::all(),
+            'category' => Category::all()
             ]
         );
     }
@@ -61,6 +64,16 @@ class AdminController extends Controller
             ]
         );
 
+        $validated = $request->validate(
+            [
+            'categories' => 'required|array|min:1', // Ensure that at least one checkbox is selected
+            'categories.*' => 'string',            // Ensure each selected value is an integer
+            ]
+        );
+
+        $selectedCategories = $request->input('categories', []);
+
+
         /* dd("masuk sini", $validatedData); */
         $product_id = Str::uuid()->toString();
 
@@ -73,6 +86,16 @@ class AdminController extends Controller
             'units' => $request->units
             ]
         );
+        // upload category
+        foreach ($selectedCategories as $cat) {
+            ProductCategory::create(
+                [
+                'id' => Str::uuid()->toString(),
+                'product_id' => $product_id,
+                'category_id' => $cat
+                ]
+            );
+        }
 
 
 

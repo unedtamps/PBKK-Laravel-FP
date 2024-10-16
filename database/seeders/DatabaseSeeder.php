@@ -55,8 +55,9 @@ class DatabaseSeeder extends Seeder
 
         /*     ] */
         /* ); */
-        Transaction::factory()->count(50)->recycle(User::all())->recycle(Product::all())->create();
+        /* Transaction::factory()->count(50)->recycle(User::all())->recycle(Product::all())->create(); */
 
+        Category::factory(10)->create();
 
         /* $prod = [ */
         /* ['id' => Str::uuid(), 'name' => 'Nike Air Jordan 1', 'units' => 100, 'description' => 'High-top basketball shoes.', 'price' => 150000], */
