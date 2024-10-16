@@ -5,13 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landmark</title>
-    <!--
-        For more customization options, we would advise
-        you to build your TailwindCSS from the source.
-        https://tailwindcss.com/docs/installation
-    -->
+    @vite('resources/css/app.css')
+    <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css">
-    <!-- Small CSS to Hide elements at 1520px size -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @media(max-width:1520px) {
@@ -93,14 +89,7 @@
             </div>
         </div>
     </header>
-
-
-    <!-- End Header Section-->
-
-    <!-- BEGIN HERO SECTION -->
-
-    <!-- BEGIN FEATURES SECTION -->
-    <!-- END FEATURES SECTION -->
+    {{ $slot }}
 </body>
 
 </html>
