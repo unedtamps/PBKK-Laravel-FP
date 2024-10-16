@@ -5,8 +5,10 @@
                 <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Payment</h2>
 
                 <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12">
-                    <form action="#" method="POST"
+                    <form action="/transaction" enctype="multipart/form-data" method="POST"
                         class="w-full rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6 lg:max-w-xl lg:p-8">
+                        @csrf
+                        <input type="hidden" id="harga_total" name="harga">
                         <div class="mb-6 grid grid-cols-2 gap-4">
                             <div class="col-span-2 sm:col-span-1">
                                 <label for="full_name"
@@ -20,7 +22,7 @@
                                 <label for="card-address-input"
                                     class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Address*
                                 </label>
-                                <input type="text" id="card-address-input"
+                                <input type="text" id="card-address-input" name="address"
                                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pe-10 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                                     placeholder="Your address" required />
                             </div>
@@ -57,7 +59,7 @@
                                     class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
                                     Upload Bukti Pembayaran*
                                 </label>
-                                <input id="image-upload" type="file" accept="image/*"
+                                <input id="image-upload" type="file" name="image-upload" accept="image/*"
                                     class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
                                 <p class="mt-1 text-sm text-gray-500 dark:text-gray-300">PNG, JPG, GIF up to 2MB</p>
                             </div>
@@ -148,6 +150,8 @@
             formatElement('count');
             formatElement('storePickup');
             formatElement('tax');
+
+            document.getElementById('harga_total').value=total;
         }
 
         // Panggil fungsi untuk menghitung dan memformat total saat halaman dimuat

@@ -107,7 +107,7 @@
         function updateValue(delta) {
             let currentValue = parseInt(input.value);
             if (isNaN(currentValue)) {
-                currentValue = 0; // Set default jika input bukan angka
+                currentValue = 0;   // Set default jika input bukan angka
             }
             const newValue = currentValue + delta;
             input.value = newValue;

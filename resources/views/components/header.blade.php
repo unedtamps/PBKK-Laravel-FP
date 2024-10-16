@@ -14,10 +14,14 @@
             <a href="/testimonials"
                 class="font-bold duration-100 transition-color hover:text-indigo-600">Testimonials</a>
             @if (Auth::check())
+                <a href="/transaction"><i
+                    class='relative z-40 px-3 py-2 mr-0 text-2xl font-bold
+                        md:hidden text-pink-500 md:px-5 lg:text-white sm:mr-3
+                        md:mt-0 bx bx-cart'></i></a>
                 <form action="/user/logout" method="POST">
                     @csrf
                     <button type="submit"><i
-                            class='relative z-40 px-3 py-2 mr-0 text-xl font-bold
+                            class='relative z-40 px-3 py-2 mr-0 text-2xl font-bold
                         md:hidden text-pink-500 md:px-5 lg:text-white sm:mr-3
                         md:mt-0 bx bx-log-out'></i></button>
                 </form>
@@ -33,10 +37,13 @@
         <div
             class="absolute left-0 flex-col items-center justify-center hidden w-full pb-8 mt-48 border-b border-gray-200 md:relative md:w-auto md:bg-transparent md:border-none md:mt-0 md:flex-row md:p-0 md:items-end md:flex md:justify-between">
             @if (Auth::check())
+                <a href="/transaction"><i
+                    class='relative z-40 px-3 py-2 mr-0 text-2xl font-bold
+            text-pink-500 md:px-5 lg:text-white sm:mr-3 md:mt-0 bx bx-cart'></i></a>
                 <form action="/user/logout" method="POST">
                     @csrf
                     <button type="submit"><i
-                            class='relative z-40 px-3 py-2 mr-0 text-xl font-bold
+                            class='relative z-40 px-3 py-2 mr-0 text-2xl font-bold
             text-pink-500 md:px-5 lg:text-white sm:mr-3 md:mt-0 bx
             bx-log-out'></i></button>
                 </form>
