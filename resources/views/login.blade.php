@@ -1,20 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    @vite('resources/css/app.css')
-    <link href="css/style.css" rel="stylesheet">
-</head>
-
-<body class="bg-gray-50">
-
+<x-authlayout>
     @if (session('success'))
         <div id="success-message"
             class="alert alert-success bg-green-500 mt-10
-text-center text-white text-sm md:text-lg max-w-xs md:max-w-md py-2 mx-auto rounded-lg">
+    text-center text-white text-sm md:text-lg max-w-xs md:max-w-md py-2 mx-auto rounded-lg">
             {{ session('success') }}
         </div>
     @endif
@@ -25,9 +13,6 @@ text-center text-white text-sm md:text-lg max-w-xs md:max-w-md py-2 mx-auto roun
             {{ $errors->first('loginError') }}
         </div>
     @endif
-
-    </div>
-    <x-authlayout />
     <div id="features" class="relative w-full px-4 py-2 md:py-3 lg:py-8
     xl:py-14 xl:px-0 my-0">
         <div class="container flex flex-col items-center justify-between h-full max-w-6xl mx-auto">
@@ -107,6 +92,4 @@ text-center text-white text-sm md:text-lg max-w-xs md:max-w-md py-2 mx-auto roun
         });
     </script>
 
-</body>
-
-</html>
+</x-authlayout>

@@ -13,9 +13,10 @@ class ProductCategory extends Model
 */
     use HasFactory;
     protected $guarded = [];
+    public $with = ['product' , 'category'];
     public $incrementing = false;  // Disable auto-incrementing since UUIDs are used
     protected $keyType = 'string'; // Set the primary key type to string
-    protected $with = ['product' , 'category'];
+
     public function product():BelongsTo
     {
         return $this->belongsTo(Product::class);
