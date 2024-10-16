@@ -117,8 +117,8 @@
         @foreach ($products as $p)
             <div class="card bg-base-100 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 shadow-xl">
                 <figure>
-                    <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                        alt="Shoes" />
+                    <a href="/product/{{ $p->id }}"><img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                        alt="Shoes" /></a>
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title">

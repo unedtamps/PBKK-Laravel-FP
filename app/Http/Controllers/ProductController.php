@@ -55,8 +55,9 @@ class ProductController extends Controller
             ]
         );
     }
-    public function getHome(Product $product)
+    public function getProduct($id)
     {
-        return view('home');
+        $product = Product::find($id);
+        return view('product',['product' => $product]);
     }
 }
