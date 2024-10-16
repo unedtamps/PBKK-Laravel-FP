@@ -19,9 +19,12 @@ class TransactionController extends Controller
     }
     public function getTransaction()
     {
+        if (!Auth::check()) {
+            return redirect('/user/login')->with('error', 'You must Login first!');
+        }
         $id = Auth::id();
         $user = User::find($id);
-        $transaction = $user->transactions;
+        $transaction = $user->transactions()->paginate(5);
         return view('transaction', ['transactions' => $transaction]);
     }
 
@@ -41,7 +44,7 @@ class TransactionController extends Controller
         // Lakukan logika lainnya, misalnya redirect ke halaman sukses
         $id = Auth::id();
         $user = User::find($id);
-        $transaction = $user->transactions;
+        $transaction = $user->transactions()->paginate(5);
         return view('transaction', ['transactions' => $transaction]);
     }
 }

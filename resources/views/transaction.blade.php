@@ -2,7 +2,7 @@
     <section class="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
         <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
             <div class="mx-auto max-w-5xl">
-                <div class="gap-4 sm:flex sm:items-center sm:justify-between">
+                {{-- <div class="gap-4 sm:flex sm:items-center sm:justify-between">
                     <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">My orders</h2>
 
                     <div class="mt-6 gap-4 space-y-4 sm:mt-0 sm:flex sm:items-center sm:justify-end sm:space-y-0">
@@ -36,7 +36,7 @@
                             </select>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="mt-6 flow-root sm:mt-8">
                     <div class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -46,15 +46,15 @@
                                     <dt class="text-base font-medium text-gray-500 dark:text-gray-400">Transaction ID:
                                     </dt>
                                     <dd class="mt-1.5 text-base font-semibold text-gray-900 dark:text-white">
-                                        {{-- <a href="#" class="hover:underline">{{ $transaction->id }}</a> --}}
-                                        <img src="{{ asset('storage/' . $transaction->transaction_proof) }}"
-                                            alt="">
+                                        <a href="#" class="hover:underline">{{ $transaction->id }}</a>
+                                        {{-- <img src="{{ asset('storage/' . $transaction->transaction_proof) }}"
+                                            alt=""> --}}
                                     </dd>
                                 </dl>
                                 <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
                                     <dt class="text-base font-medium text-gray-500 dark:text-gray-400">Date:</dt>
                                     <dd class="mt-1.5 text-base font-semibold text-gray-900 dark:text-white">
-                                        {{ $transaction->created_at }}
+                                        {{ $transaction->created_at->diffForHumans() }}
                                     </dd>
                                 </dl>
 
@@ -116,7 +116,7 @@
                     </div>
                 </div>
 
-                <nav class="mt-6 flex items-center justify-center sm:mt-8" aria-label="Page navigation example">
+                {{-- <nav class="mt-6 flex items-center justify-center sm:mt-8" aria-label="Page navigation example">
                     <ul class="flex h-8 items-center -space-x-px text-sm">
                         <li>
                             <a href="#"
@@ -163,7 +163,8 @@
                             </a>
                         </li>
                     </ul>
-                </nav>
+                </nav> --}}
+                {{ $transactions->links() }}
             </div>
         </div>
     </section>
