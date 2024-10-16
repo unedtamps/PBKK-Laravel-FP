@@ -5,6 +5,7 @@
                 {{-- <div class="gap-4 sm:flex sm:items-center sm:justify-between">
                     <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">My orders</h2>
 
+
                     <div class="mt-6 gap-4 space-y-4 sm:mt-0 sm:flex sm:items-center sm:justify-end sm:space-y-0">
                         <div>
                             <label for="order-type"
@@ -43,7 +44,12 @@
                         @foreach ($transactions as $transaction)
                             <div class="flex flex-wrap gap-x-4 items-center gap-y-4 py-6">
                                 <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
-                                    <dt class="text-base font-medium text-gray-500 dark:text-gray-400">Transaction ID:
+                                    <dt
+                                        class="text-base font-medium
+                                    text-gray-500
+                                    dark:text-gray-400">
+                                        Transaction ID:
+                                        {{ $transaction->id }}
                                     </dt>
                                     <dd class="mt-1.5 text-base font-semibold text-gray-900 dark:text-white">
                                         <a href="#" class="hover:underline">{{ $transaction->id }}</a>
@@ -115,7 +121,6 @@
                         @endforeach
                     </div>
                 </div>
-
                 {{-- <nav class="mt-6 flex items-center justify-center sm:mt-8" aria-label="Page navigation example">
                     <ul class="flex h-8 items-center -space-x-px text-sm">
                         <li>
@@ -166,6 +171,5 @@
                 </nav> --}}
                 {{ $transactions->links() }}
             </div>
-        </div>
     </section>
 </x-authlayout>

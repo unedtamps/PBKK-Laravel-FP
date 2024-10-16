@@ -11,10 +11,12 @@ class ProductController extends Controller
 {
     public function viewProducts(Request $request)
     {
-        if(!Auth::check()){
-            return redirect('/user/login')->with('error', 'You must Login first!');
-        }
-        $query = Product::with('productCategories');
+
+        /* if(!Auth::check()) { */
+        /*     return redirect('/user/login')->with('error', 'You must Login first!'); */
+        /* } */
+
+        $query= Product::with('productCategories', 'productPics');
         $categories = Category::all();
 
         if ($request->search) {

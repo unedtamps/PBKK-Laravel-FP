@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware\AdminLogin;
+use App\Http\Middleware\Guest;
 use App\Http\Middleware\UserLogin;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -16,6 +18,8 @@ return Application::configure(basePath: dirname(__DIR__))
             $middleware->alias(
                 [
                 'user' => UserLogin::class,
+                'admin'=>AdminLogin::class,
+                'guest'=>Guest::class,
                 ]
             );
         }

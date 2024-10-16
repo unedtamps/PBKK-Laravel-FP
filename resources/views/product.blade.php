@@ -4,20 +4,15 @@
             <div
                 class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 rounded-lg bg-gray-200 p-4 shadow-sm shadow-indigo-100">
                 <a href="#" class="sm:col-span-2 ">
-                    <img alt="" src="{{ asset('storage/img/laptop.png') }}"
+                    <img alt=""
+                        src="{{ asset('storage/products/' . $product->productPics->first()->id . '.jpg') }}"
                         class="h-100 w-100 rounded-md object-cover" />
                 </a>
                 <div class="mt-2 flex justify-center lg:flex-row sm:flex-col sm:justify-center sm:items-center">
-
-                    <img alt="" src="{{ asset('storage/img/laptop.png') }}"
-                        class="h-16 w-16 lg:h-16 lg:w-16 md:h-24 md:w-24 rounded-md object-cover" />
-                    <img alt="" src="{{ asset('storage/img/laptop.png') }}"
-                        class="h-16 w-16 lg:h-16 lg:w-16 md:h-24 md:w-24 rounded-md object-cover" />
-                    <img alt="" src="{{ asset('storage/img/laptop.png') }}"
-                        class="h-16 w-16 lg:h-16 lg:w-16 md:h-24 md:w-24 rounded-md object-cover" />
-                    <img alt="" src="{{ asset('storage/img/laptop.png') }}"
-                        class="h-16 w-16 lg:h-16 lg:w-16 md:h-24 md:w-24 rounded-md object-cover" />
-
+                    @foreach ($product->productPics as $pp)
+                        <img alt="" src="{{ asset('storage/products/' . $pp->id . '.jpg') }}"
+                            class="h-16 w-16 lg:h-16 lg:w-16 md:h-24 md:w-24 rounded-md object-cover" />
+                    @endforeach
                 </div>
             </div>
             <div class="flow-root rounded-lg border border-gray-100 py-3 shadow-sm lg:col-span-2 bg-gray-200">
@@ -86,7 +81,7 @@
                                         stroke-width="2"
                                         d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4" />
                                 </svg>
-                                Add to cart
+                                Buy Now
                             </button>
                         </form>
 

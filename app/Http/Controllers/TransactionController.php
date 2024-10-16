@@ -28,18 +28,33 @@ class TransactionController extends Controller
         return view('transaction', ['transactions' => $transaction]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Product $product)
     {
         // Membuat transaksi baru dan menyimpan ID user yang sedang login
-        $transaction = Transaction::create([
-            'id' => Str::uuid(),
+
+        // mengurangi jumlah produck
+        if($product->units - $request->amount < 0) {
+            return redirect('/product/'.$product->id);
+        }
+        $product->units = $product->units - 1;
+        $product->save();
+
+        $id = Str::uuid()->toString();
+        $tf = Str::uuid()->toString();
+        $transaction = Transaction::create(
+            [
+            'id' => $id,
             'user_id' => Auth::id(), // Menyimpan ID user yang sedang login
+            'product_id'=> $product->id,
             'total_price' => $request->harga,
             'status' => 'PENDING',
-            'transaction_proof' => $request->file('image-upload')->storeAs("proofs", Str::uuid()->toString()),
-            'shipping_address' => $request->address
-            // tambahkan field lain yang dibutuhkan
-        ]);
+            'transaction_proof' => $tf,
+            'shipping_address' => $request->address,
+            'amount' => $request->amount,
+            'payment_method' => $request->payment_method
+            ]
+        );
+        $request->file('image-upload')->storeAs("proofs", $tf. '.jpg');
 
         // Lakukan logika lainnya, misalnya redirect ke halaman sukses
         $id = Auth::id();

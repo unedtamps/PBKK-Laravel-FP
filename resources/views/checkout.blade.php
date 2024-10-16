@@ -5,28 +5,25 @@
                 <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Payment</h2>
 
                 <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12">
-                    <form action="/transaction" enctype="multipart/form-data" method="POST"
+                    <form action="/transaction/{{ $product->id }}" enctype="multipart/form-data" method="POST"
                         class="w-full rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6 lg:max-w-xl lg:p-8">
+
+                        <input type="text" id="amount" name="amount" class="" value="{{ $count }}"
+                            placeholder="Your name" hidden />
                         @csrf
                         <input type="hidden" id="harga_total" name="harga">
                         <div class="mb-6 grid grid-cols-2 gap-4">
                             <div class="col-span-2 sm:col-span-1">
                                 <label for="full_name"
-                                    class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Full name*
+                                    class="mb-2 block text-sm font-medium
+                                    text-gray-900 dark:text-white">
+                                    Shipping
+                                    address*
                                 </label>
-                                <input type="text" id="full_name" name="nama_customer"
+                                <input type="text" id="address" name="address"
                                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                                    placeholder="Your name" required />
+                                    placeholder="Your Address" required />
                             </div>
-                            <div class="col-span-2 sm:col-span-1">
-                                <label for="card-address-input"
-                                    class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Address*
-                                </label>
-                                <input type="text" id="card-address-input" name="address"
-                                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pe-10 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                                    placeholder="Your address" required />
-                            </div>
-
                             <div>
                                 <label for="payment-method-input"
                                     class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
@@ -34,25 +31,21 @@
                                 </label>
 
                                 <select id="payment-method-input"
-                                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 "
-                                    required>
+                                    class="block w-full rounded-lg border
+                                    border-gray-300 bg-gray-50 p-2.5 text-sm
+                                    text-gray-900 focus:border-blue-500
+                                    focus:ring-blue-500 dark:border-gray-600
+                                    dark:bg-gray-700 dark:text-white
+                                    dark:placeholder:text-gray-400
+                                    dark:focus:border-blue-500
+                                    dark:focus:ring-blue-500 "
+                                    name="payment_method" required>
                                     <option value="" disabled selected>Payment method</option>
                                     <option value="BCA">BCA</option>
                                     <option value="MANDIRI">MANDIRI</option>
                                     <option value="BRI">BRI</option>
-                                    <option value="E-Money">E-Money</option>
+                                    <option value="E-MONEY">E-Money</option>
                                 </select>
-                            </div>
-                            <div>
-                                <label for="card-number-input"
-                                    class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Card number
-                                </label>
-
-                                <p
-                                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pe-10 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500">
-
-                                    1234567789
-                                </p>
                             </div>
                             <div class="col-span-2">
                                 <label for="image-upload"
@@ -105,6 +98,20 @@
                                 <dd id="total" class="text-base font-bold text-gray-900 dark:text-white"></dd>
                             </dl>
                         </div>
+
+                        <div>
+                            <label for="card-number-input"
+                                class="mb-2 block text-sm font-medium
+                                text-gray-900 dark:text-white">
+                                Transfer to this
+                                number </label>
+
+                            <p
+                                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pe-10 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500">
+
+                                6019-0075-2074-1217
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -142,6 +149,8 @@
 
                 // Menghitung total
                 const total = (price * count) + storePickup + tax;
+
+                document.getElementById('harga_total').value = total;
 
                 // Format dan tampilkan nilai total
                 document.getElementById('total').textContent = `Rp ${formatCurrency(total)}`;

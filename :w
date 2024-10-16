@@ -12,19 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create(
-            'detail_transactions', function (Blueprint $table) {
+            'product_categories', function (Blueprint $table) {
                 $table->uuid('id')->primary();
                 $table->foreignId('product_id')->constrained(
                     table: 'products',
-                    indexName: 'detail_transaction_product_id',
-                );
-                $table->foreignId('transaction_id')->constrained(
-                    table: 'transactions',
-                    indexName: 'detail_transaction_transaction_id',
-                );
-                $table->bigInteger('amount');
+                    indexName: 'product_category_product_id',
+                )->onDelete('cascade');
+                $table->foreignId('category_id')->constrained(
+                    table: 'categories',
+                    indexName: 'product_category_category_id',
+                )->onDelete('cascade');
                 $table->timestamp('created_at')->useCurrent();
                 $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
+
             }
         );
     }
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('detail_transactions');
+        Schema::dropIfExists('product_categories');
     }
 };

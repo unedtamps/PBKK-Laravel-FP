@@ -17,12 +17,12 @@ return new class extends Migration
                 $table->foreignId('user_id')->constrained(
                     table: 'users',
                     indexName: 'review_user_id',
-                );
+                )->onDelete('cascade');
 
                 $table->foreignId('product_id')->constrained(
                     table: 'products',
                     indexName: 'review_product_id',
-                );
+                )->onDelete('cascade');
                 $table->float('rating');
                 $table->string('body')->nullable();
                 $table->timestamp('created_at')->useCurrent();

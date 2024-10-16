@@ -17,11 +17,11 @@ return new class extends Migration
                 $table->foreignId('product_id')->constrained(
                     table: 'products',
                     indexName: 'product_category_product_id',
-                );
+                )->onDelete('cascade');
                 $table->foreignId('category_id')->constrained(
                     table: 'categories',
                     indexName: 'product_category_category_id',
-                );
+                )->onDelete('cascade');
                 $table->timestamp('created_at')->useCurrent();
                 $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
 

@@ -17,11 +17,17 @@ return new class extends Migration
                 $table->foreignId('user_id')->constrained(
                     table: 'users',
                     indexName: 'transaction_user_id',
-                );
+                )->onDelete('cascade');
+                $table->foreignId('product_id')->constrained(
+                    table: 'products',
+                    indexName: 'transaction_product_id',
+                )->onDelete('cascade');
                 $table->bigInteger('total_price');
                 $table->enum('status', ['PENDING', 'COMPLETED', 'CANCELED']);
+                $table->enum('payment_method', ['BRI', 'BCA', 'MANDIRI', 'E-MONEY']);
                 $table->string('transaction_proof');
                 $table->string('shipping_address');
+                $table->bigInteger('amount');
                 $table->timestamp('created_at')->useCurrent();
                 $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             }
