@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landmark</title>
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css','resources/js/app.js'])
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -39,12 +39,11 @@
         <div
             class="container flex items-center justify-center h-full max-w-6xl px-8 mx-auto sm:justify-between xl:px-0">
 
-            <nav id="nav"
-                class="absolute top-0 left-0 z-50 flex flex-col items-center justify-between hidden w-full h-64 pt-5 mt-24 text-sm text-gray-800 bg-white md:w-auto md:flex-row md:h-24 lg:text-base md:bg-transparent md:mt-0 md:py-0 md:flex md:relative">
-            </nav>
-
+            <a href="/" class="relative flex items-center inline-block h-5 h-full font-black leading-none">
+                <span class="ml-3 text-xl text-gray-800">Landmark<span class="text-pink-500">.</span></span>
+            </a>
             <div
-                class="absolute left-0 flex-col items-center justify-center hidden w-full pb-8 mt-48 md:relative md:w-auto md:bg-transparent md:mt-0 md:flex-row md:p-0 md:items-end md:flex md:justify-between">
+                class="absolute left-0 flex-col items-center justify-center hidden w-full pb-8 mt-48 border-b border-gray-200 md:relative md:w-auto md:bg-transparent md:border-none md:mt-0 md:flex-row md:p-0 md:items-end md:flex md:justify-between">
                 <svg class="absolute top-0 left-0 hidden w-screen max-w-3xl -mt-64 -ml-12 lg:block"
                     viewBox="0 0 818 815" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <defs>

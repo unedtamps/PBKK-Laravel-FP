@@ -2,25 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
     public function viewProducts(Request $request)
     {
+
+        /* if(!Auth::check()) { */
+        /*     return redirect('/user/login')->with('error', 'You must Login first!'); */
+        /* } */
+
         $query= Product::with('productCategories', 'productPics');
         $categories = Category::all();
 
         if ($request->search) {
-            $query->where('name', 'like', '%'. $request->search . '%');
+            $query->where('name', 'like', '%' . $request->search . '%');
         }
 
-        if($request->category) {
+        if ($request->category) {
             $caReq = $request->category;
             $query->whereHas(
-                'productCategories', function ($q) use ($caReq) {
+                'productCategories',
+                function ($q) use ($caReq) {
                     $q->where('category_id', $caReq);
                 }
             );
@@ -29,9 +36,10 @@ class ProductController extends Controller
 
         $selectedCategories = $request->input('categories', []);
 
-        foreach($selectedCategories as $c){
+        foreach ($selectedCategories as $c) {
             $query->whereHas(
-                'productCategories', function ($q) use ($c) {
+                'productCategories',
+                function ($q) use ($c) {
                     $q->where('category_id', $c); // Assuming the pivot table has 'category_id'
                 }
             );
@@ -49,12 +57,15 @@ class ProductController extends Controller
         $products = $query->paginate(6)->withQueryString();
 
         return view(
-            'products', [
-            'products' => $products,
+            'products',
+            [
+                'products' => $products,
                 'categories' => $categories
             ]
         );
     }
+
+
     public function getProduct($id)
     {
         $product = Product::find($id);

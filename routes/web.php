@@ -8,15 +8,13 @@ use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/product/{id}', [ProductController::class, 'getProduct']);
 Route::get(
     '/',
     function () {
         return view('home');
     }
 );
-
-
+Route::get('/product/{id}', [ProductController::class, 'getProduct']);
 Route::prefix('user')->group(
     function () {
         Route::controller(UserController::class)->group(
@@ -70,3 +68,5 @@ Route::get('/transaction', [TransactionController::class, 'getTransaction'])->mi
 // Route::post('/checkout', [TransactionController::class, 'addCart']);
 Route::post('/checkout/{id}', [TransactionController::class, 'addCart'])->middleware('user');
 Route::post('/transaction/{product}', [TransactionController::class, 'store'])->middleware('user');
+Route::post('/transaction', [TransactionController::class, 'store'])->middleware('user');
+Route::post('/productpics', [ProductPictureController::class, 'upload'])->middleware('user');

@@ -117,52 +117,55 @@
             </div>
         </div>
     </section>
+    <x-footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
 
-    <script>
-        // Fungsi untuk memformat angka dengan titik setiap 3 angka dari belakang
-        function formatCurrency(value) {
-            return new Intl.NumberFormat('id-ID').format(value);
-        }
-
-        // Fungsi untuk mengambil nilai dari elemen dan membersihkan simbol non-numerik
-        function getCleanedNumber(id) {
-            return parseFloat(document.getElementById(id).textContent.replace(/[^0-9.-]+/g, ""));
-        }
-
-        // Fungsi untuk memformat elemen dengan angka
-        function formatElement(id) {
-            const value = getCleanedNumber(id);
-            if (id != 'count') {
-                document.getElementById(id).textContent = `Rp ${formatCurrency(value)}`;
+        <script>
+            // Fungsi untuk memformat angka dengan titik setiap 3 angka dari belakang
+            function formatCurrency(value) {
+                return new Intl.NumberFormat('id-ID').format(value);
             }
-        }
 
-        // Fungsi untuk menghitung total dan memformat semua elemen
-        function calculateTotal() {
-            const price = getCleanedNumber('price');
-            const count = getCleanedNumber('count');
-            const storePickup = getCleanedNumber('storePickup');
-            const tax = getCleanedNumber('tax');
+            // Fungsi untuk mengambil nilai dari elemen dan membersihkan simbol non-numerik
+            function getCleanedNumber(id) {
+                return parseFloat(document.getElementById(id).textContent.replace(/[^0-9.-]+/g, ""));
+            }
 
-            // Menghitung total
-            const total = (price * count) + storePickup + tax;
+            // Fungsi untuk memformat elemen dengan angka
+            function formatElement(id) {
+                const value = getCleanedNumber(id);
+                if (id != 'count') {
+                    document.getElementById(id).textContent = `Rp ${formatCurrency(value)}`;
+                }
+            }
 
-            // Format dan tampilkan nilai total
-            document.getElementById('total').textContent = `Rp ${formatCurrency(total)}`;
+            // Fungsi untuk menghitung total dan memformat semua elemen
+            function calculateTotal() {
+                const price = getCleanedNumber('price');
+                const count = getCleanedNumber('count');
+                const storePickup = getCleanedNumber('storePickup');
+                const tax = getCleanedNumber('tax');
 
-            // Memformat elemen-elemen lain
-            formatElement('price');
-            formatElement('count');
-            formatElement('storePickup');
-            formatElement('tax');
+                // Menghitung total
+                const total = (price * count) + storePickup + tax;
 
-            document.getElementById('harga_total').value = total;
-        }
+                document.getElementById('harga_total').value = total;
 
-        // Panggil fungsi untuk menghitung dan memformat total saat halaman dimuat
-        calculateTotal();
-    </script>
+                // Format dan tampilkan nilai total
+                document.getElementById('total').textContent = `Rp ${formatCurrency(total)}`;
 
+                // Memformat elemen-elemen lain
+                formatElement('price');
+                formatElement('count');
+                formatElement('storePickup');
+                formatElement('tax');
+
+                document.getElementById('harga_total').value = total;
+            }
+
+            // Panggil fungsi untuk menghitung dan memformat total saat halaman dimuat
+            calculateTotal();
+        </script>
+    </x-footer>
 </x-authlayout>
