@@ -10,8 +10,6 @@
                 text-center text-gray-900 sm:mt-0 sm:px-0 sm:text-6xl">
                     Register
                     to Store</h3>
-
-
             </div>
         </div>
         <section>

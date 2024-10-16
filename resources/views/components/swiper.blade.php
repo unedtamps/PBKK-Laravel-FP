@@ -39,7 +39,7 @@
             <div class="swiper-slide">
                 <div class="group relative">
                     <div
-                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 md:h-80 h-96">
                         <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg"
                             alt="Front of men&#039;s Basic Tee in black."
                             class="h-full w-full object-cover object-center lg:h-full lg:w-full">
@@ -61,7 +61,7 @@
             <div class="swiper-slide">
                 <div class="group relative">
                     <div
-                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 md:h-80 h-96">
                         <img src="{{ asset('storage/img/laptop.png') }}"
                             alt="Front of men&#039;s Basic Tee in black."
                             class="h-full w-full object-cover object-center lg:h-full lg:w-full">
@@ -83,7 +83,7 @@
             <div class="swiper-slide">
                 <div class="group relative">
                     <div
-                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 md:h-80 h-96">
                         <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg"
                             alt="Front of men&#039;s Basic Tee in black."
                             class="h-full w-full object-cover object-center lg:h-full lg:w-full">
@@ -105,7 +105,7 @@
             <div class="swiper-slide">
                 <div class="group relative">
                     <div
-                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 md:h-80 h-96">
                         <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg"
                             alt="Front of men&#039;s Basic Tee in black."
                             class="h-full w-full object-cover object-center lg:h-full lg:w-full">
@@ -127,7 +127,7 @@
             <div class="swiper-slide">
                 <div class="group relative">
                     <div
-                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 md:h-80 h-96">
                         <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg"
                             alt="Front of men&#039;s Basic Tee in black."
                             class="h-full w-full object-cover object-center lg:h-full lg:w-full">
@@ -149,7 +149,7 @@
             <div class="swiper-slide">
                 <div class="group relative">
                     <div
-                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 md:h-80 h-96">
                         <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg"
                             alt="Front of men&#039;s Basic Tee in black."
                             class="h-full w-full object-cover object-center lg:h-full lg:w-full">
@@ -189,8 +189,12 @@
             },
             breakpoints: {
                 // Pengaturan untuk ukuran layar di atas 1024px
-                1024: {
+                1200: {
                     slidesPerView: 4, // Menampilkan 3 slide pada layar besar
+                    spaceBetween: 30, // Jarak antar slide
+                },
+                1024: {
+                    slidesPerView: 3, // Menampilkan 3 slide pada layar besar
                     spaceBetween: 30, // Jarak antar slide
                 },
                 // Pengaturan untuk ukuran layar di atas 768px
