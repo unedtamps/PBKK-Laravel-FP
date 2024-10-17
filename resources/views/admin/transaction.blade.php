@@ -43,7 +43,7 @@
                                 <td class="px-6 py-4">
                                     {{ $tr->total_price }}
                                 </td>
-                                <td class="px-6 py-4">
+                                <td class="px-6 py-4 flex">
                                     <form action="/admin/transaction/confirm/{{ $tr->id }}"
                                         class="font-medium text-white bg-green-600
                                     p-2 rounded-md

@@ -90,28 +90,6 @@
             </div>
         </div>
     </div>
-
-    <div class="mx-auto max-w-8xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <div class="flex flex-col items-center">
-            <h2 class="my-5 text-base font-medium tracking-tight text-indigo-500 uppercase">Review Product</h2>
-        </div>
-        <div class="py-4 px-4"></div>
-        <div class="mt-6 relative px-4">
-            <x-swiper-review></x-swiper-review>
-        </div>
-    </div>
-
-    <div class="">
-        <div class="mx-auto max-6-xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-            <div class="flex flex-col items-center">
-                <h2 class="my-5 text-base font-medium tracking-tight text-indigo-500 uppercase">Related Product</h2>
-            </div>
-            <div class="mt-6">
-                <x-swiper></x-swiper>
-            </div>
-        </div>
-    </div>
-
     <x-footer>
         <script>
             // Mendapatkan elemen input dan tombol

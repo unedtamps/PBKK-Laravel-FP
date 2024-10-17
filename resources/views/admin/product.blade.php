@@ -172,9 +172,9 @@
                 text-gray-900 dark:text-white">Check
                     Category</h3>
 
-                <div class="flex flex-wrap bg-blue-200 p-3 rounded-lg">
+                <div class="flex flex-wrap bg-blue-200 p-1 rounded-lg">
                     @foreach ($category as $index => $c)
-                        <div class="w-1/4 mb-4">
+                        <div class="w-1/4 mb-2">
                             <div class="flex items-center">
                                 <input id="category-{{ $c->id }}" type="checkbox"
                                     value="{{ $c->id }}" name="categories[]"

@@ -88,7 +88,7 @@
                                 <dl class="flex items-center justify-between gap-4">
                                     <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Tax</dt>
                                     <dd id="tax" class="text-base font-medium text-gray-900 dark:text-white">
-                                        Rp 73178899</dd>
+                                        Rp 5000</dd>
                                 </dl>
                             </div>
 

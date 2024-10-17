@@ -5,13 +5,19 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductPictureController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TransactionController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get(
     '/',
     function () {
-        return view('home');
+        $products = Product::with('productPics')->take(6)->get();
+        return view(
+            'home', [
+            'products' => $products
+            ]
+        );
     }
 );
 Route::get('/product/{id}', [ProductController::class, 'getProduct']);
