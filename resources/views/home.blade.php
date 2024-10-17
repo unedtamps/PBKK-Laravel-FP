@@ -75,10 +75,14 @@
     <section class="">
         <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
             <div class="flex flex-col items-center">
-                <h2 class="my-5 text-base font-medium tracking-tight text-indigo-500 uppercase">Our Top Products</h2>
+                <h2 class="my-5 text-base font-medium tracking-tight
+                text-indigo-500 uppercase">Review
+                </h2>
                 <h3
-                    class="w-full max-w-2xl px-5 px-8 mt-2 text-2xl font-black leading-tight text-center text-gray-900 sm:mt-0 sm:px-0 sm:text-6xl md:px-0">
-                    Simple, Transparent Pricing for Everyone</h3>
+                    class="w-full max-w-2xl px-5 px-8 mt-2 text-2xl font-black
+                    leading-tight text-center text-gray-900 sm:mt-0 sm:px-0
+                    sm:text-6xl md:px-0">
+                    What They Say</h3>
             </div>
             <div class="py-4 px-4"></div>
             <div class="mt-6 relative px-4">
