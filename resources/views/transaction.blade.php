@@ -49,7 +49,6 @@
                                     text-gray-500
                                     dark:text-gray-400">
                                         Transaction ID:
-                                        {{ $transaction->id }}
                                     </dt>
                                     <dd class="mt-1.5 text-base font-semibold text-gray-900 dark:text-white">
                                         <a href="#" class="hover:underline">{{ $transaction->id }}</a>

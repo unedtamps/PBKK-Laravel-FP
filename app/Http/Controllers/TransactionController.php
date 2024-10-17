@@ -36,7 +36,7 @@ class TransactionController extends Controller
         if($product->units - $request->amount < 0) {
             return redirect('/product/'.$product->id);
         }
-        $product->units = $product->units - 1;
+        $product->units = $product->units - $request->amount;
         $product->save();
 
         $id = Str::uuid()->toString();
